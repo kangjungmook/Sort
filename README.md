@@ -18,16 +18,14 @@ Data들의 집합을 의미합니다.
 ```java
 public void insertion_sort(int[] arr) {
     int temp = 0, prev = 0;
-    // 1부터 마지막 원소까지 순회
     for(int i=1; i<arr.length; i++) {
     	temp = arr[i];
         prev = i - 1;
-        // 첫 번째 원소까지 비교하면서 삽입해 나갑니다.
         while(prev >= 0 && arr[prev] > temp) {
             arr[prev + 1] = arr[prev];
             prev--;
         }
-        arr[prev + 1] = temp;	// 현재 prev + 1 위치에 temp값에 넣었던 arr[i]값을 넣어줍니다.
+        arr[prev + 1] = temp;	
     }
 }
 ```
@@ -65,8 +63,6 @@ public class BubbleSort {
 				}
 			}
 		}
-		
-		System.out.println("<정렬 후>");
 		System.out.println(Arrays.toString(nums));
 	}
 }
