@@ -16,17 +16,23 @@ Data들의 집합을 의미합니다.
 
 ### for문
 ```java
-public void insertion_sort(int[] arr) {
-    int temp = 0, prev = 0;
-    for(int i=1; i<arr.length; i++) {
-    	temp = arr[i];
-        prev = i - 1;
-        while(prev >= 0 && arr[prev] > temp) {
-            arr[prev + 1] = arr[prev];
-            prev--;
-        }
-        arr[prev + 1] = temp;	
-    }
+int [] arr = {10, 2, 6, 4, 3, 7, 5};
+		for (int i = 1; i < arr.length; i++) {
+			int standard = arr[i];  // 기준
+			int aux = i - 1;   // 비교할 대상
+			while (aux >= 0 && standard < arr[aux]) {
+				arr[aux + 1] = arr[aux];   // 비교대상이 큰 경우 오른쪽으로 밀어냄
+				aux--;
+			}
+			arr[aux + 1] = standard;  // 기준값 저장
+		}
+		printArr(arr);
+	}
+	public static void printArr(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
 }
 ```
 
@@ -44,28 +50,19 @@ public void insertion_sort(int[] arr) {
 * 두 개의 인접한 원소를 비교하여 정렬하는 방식
 ### for문
 ```java
-import java.util.Arrays;
-
-public class BubbleSort {
-	static int[] nums;
-
-	public static void main(String[] args) {
-		nums = new int[10];
-		for (int i = 0; i < 10; i++) {
-			nums[i] = (int) (Math.random() * 10);
-		}
-				for(int i = nums.length - 1; i > 0; i--) {
-			for(int j = 0; j < i; j++) {
-				if(nums[j] > nums[j + 1]) {
-					int temp = nums[j];
-					nums[j] = nums[j + 1];
-					nums[j + 1] = temp;
+static void bubbleSort(int[] a, int n) {
+		int k = 0 ; // 첫 패스에는 모든 요소를 검사
+		while(k < n - 1) {
+			int last = n - 1; // 마지막으로 교환한 요소 위치
+			for (int j = n - 1; j > k; j--) { // 배열의 끝 n-1 부터 비교
+				if (a[j - 1] > a[j]) { // 대소비교
+					swap(a, j - 1, j); // 교환
+					last = j;
 				}
 			}
+			k = last; // 마지막으로 교환한 위치를 k에 저장
 		}
-		System.out.println(Arrays.toString(nums));
 	}
-}
 ```
 
 
