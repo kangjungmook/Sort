@@ -69,7 +69,7 @@ public static void main(String[] args) {
     }
 ```
 
-# 1.퀵 정렬(Quick sort)
+# 3.퀵 정렬(Quick sort)
 
 ### 퀵 정렬이란?
 * 하나의 리스트를 피벗(pivot)을 기준으로 두 개의 
