@@ -35,6 +35,7 @@ int [] arr = {10, 2, 6, 4, 3, 7, 5};
 	}
 }
 ```
+![image](https://user-images.githubusercontent.com/106642094/223327362-4994a1c7-687a-40a8-b73f-cd6d433b8717.png)
 
 
 # 2. 버블정렬(bubble sort)
@@ -50,20 +51,24 @@ int [] arr = {10, 2, 6, 4, 3, 7, 5};
 * 두 개의 인접한 원소를 비교하여 정렬하는 방식
 ### for문
 ```java
-static void bubbleSort(int[] a, int n) {
-		int k = 0 ; // 첫 패스에는 모든 요소를 검사
-		while(k < n - 1) {
-			int last = n - 1; // 마지막으로 교환한 요소 위치
-			for (int j = n - 1; j > k; j--) { // 배열의 끝 n-1 부터 비교
-				if (a[j - 1] > a[j]) { // 대소비교
-					swap(a, j - 1, j); // 교환
-					last = j;
-				}
-			}
-			k = last; // 마지막으로 교환한 위치를 k에 저장
-		}
-	}
+public static void main(String[] args) {
+        int[] arr= {30,20,40,50,10};
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=0;j<arr.length-1-i;j++) {
+                if(arr[j]>arr[j+1]) {
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        for(int i:arr)
+        {
+            System.out.print(i+" ");
+        }
+    }
 ```
+
 
 
 
