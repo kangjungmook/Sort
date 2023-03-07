@@ -69,6 +69,68 @@ public static void main(String[] args) {
     }
 ```
 
+# 1.퀵 정렬(Quick sort)
+
+### 퀵 정렬이란?
+* 하나의 리스트를 피벗(pivot)을 기준으로 두 개의 
+부분리스트로 나누어 하나는 피벗보다 작은 
+값들의 부분리스트, 다른 하나는 피벗보다 큰 
+값들의 부분리스트로 정렬한 다음, 각 부분리스트에 
+대해 다시 위 처럼 재귀적으로 수행하여 정렬하는 방법이다
+### 목적 같은 경우엔?
+* 기준 데이터를 설정하고 그 기준보다 큰 
+데이터와 작은 데이터의 위치를 바꾸는 것
+## 따라서 퀵 정렬의 알고리즘은?
+* 데이터 그룹에서 그룹을 나누는 기준인 피벗(pivot)을 
+선택하고, 피벗을 기준으로 그룹을 나누는 것을 
+반복하여 각 그룹이 1개가 되면 정렬을 마칩니다.
+
+
+```java
+
+import java.util.Arrays;
+
+public class QuickSort {
+    int[] array = new int[]{10, 2, 5, 6, 3, 73};
+
+    public void sort() {
+        quickSort(array, 0, array.length - 1);
+        System.out.println(Arrays.toString(array));
+    }
+
+    private void quickSort(int[] array, int start, int end) {
+        if (start >= end) return;
+
+        int pivot = start;
+        int left = start + 1;
+        int right = end;
+        int temp;
+
+        while (left <= right) {
+            while (array[pivot] >= array[left]) {
+                left++;
+            }
+            while (array[pivot] <= array[right] && right > start) {
+                right--;
+            }
+
+            if (left > right) {
+                temp = array[right];
+                array[right] = array[start];
+                array[start] = temp;
+            } else {
+                temp = array[right];
+                array[right] = array[left];
+                array[left] = temp;
+            }
+        }
+
+        quickSort(array, start, right - 1);
+        quickSort(array, right + 1, end);
+    }
+}
+
+```
 
 
 
