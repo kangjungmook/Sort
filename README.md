@@ -68,6 +68,8 @@ public static void main(String[] args) {
         }
     }
 ```
+![image](https://user-images.githubusercontent.com/106642094/223592876-03ee698b-f5d9-4ddc-b140-4da7ec91b1dc.png)
+
 
 # 3.퀵 정렬(Quick sort)
 
